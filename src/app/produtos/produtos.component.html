@@ -1,18 +1,30 @@
 <h2>Produtos</h2>
 
+<div class="main_container">
 <ul class="produtos">
     <li *ngFor="let produto of produtos">
-        <button type="button" (click)="onSelect(produto)">
-            <span class ="list badge">{{produto.id}}</span><span class ="list"> {{produto.name}}</span>
-        </button>
+        <h3>
+            <button class="product_button" type="button" (click)="onSelect(produto)">
+            <div class="flex-container">
+            <h3 class="flex">
+                <img class="icon" src="{{'../../assets/images/' + produto.icon}}" alt="">
+                <span class ="list badge"></span><span class ="list"> {{produto.name}}</span>
+            </h3>
+            </div>
+            </button>
+        </h3>
     </li>
 </ul>
-
+    
+<div class="Produtos_Selecionados">
 <div *ngIf="selectedProduto">
     <h2>{{selectedProduto.name}} Details</h2>
-    <div>id: {{selectedProduto.id}}</div>
-    <div>
-       <label for="produto-nome">Nome do produto: </label>
-      <input id="produto-name" [(ngModel)]="selectedProduto.name" placeholder="name">
+    <div>ID: {{selectedProduto.id}}</div>
+    <div class="menu_info">
+       <label for="produto-nome">Alterar nome: </label>
+      <input width="50px" height="20px" id="produto-name" [(ngModel)]="selectedProduto.name" placeholder="name">
+      <img width="500px" src="{{'../../assets/images/' + selectedProduto.img}}" alt="">
     </div>
+</div>
+</div>
 </div>
